@@ -1,0 +1,141 @@
+:root
+{
+    --yellow: rgb(228, 176, 32);
+    --header-bg: rgb(10, 10, 10);
+    --form-bg: rgb(20, 20, 20);
+    --link-color: white;
+}
+
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+header
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+
+    min-height: 3rem;
+
+    background-color: var(--header-bg);
+    border-bottom: 3px solid var(--yellow);
+}
+
+@media (width <= 480px)
+{
+    header
+    {
+        grid-template-columns: none;
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    nav
+    {
+        /* Aca use !important para que esta regla pise a la que no tiene media query*/
+        justify-self: center !important;
+    }
+}
+
+#title, nav
+{
+    align-self: center;
+}
+
+#title
+{
+    justify-self: self-start;
+    color: var(--yellow);
+}
+
+nav
+{
+    justify-self: self-end;
+}
+
+nav > a
+{
+    color: var(--link-color);
+    text-decoration: none;
+    margin: 0.5rem;
+}
+
+/* ---------------- */
+
+body
+{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/background.avif");
+}
+
+main
+{
+    display: flex;
+    justify-content: center;
+}
+
+form
+{
+    display: flex;
+    width: 30rem;
+    flex-direction: column;
+    background-color: var(--form-bg);
+    margin: 2rem;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+form > h1
+{
+    text-align: center;
+    color: var(--yellow);
+    margin-bottom: 1rem;
+}
+
+label
+{
+    color: white;
+}
+
+input, select
+{
+    margin-bottom: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--header-bg);
+}
+
+input[type="submit"]
+{
+    background-color: var(--yellow);
+    color: var(--form-bg);
+    font-weight: bolder;
+}
+
+#error-div, #correcto-div, #mensaje-div
+{
+    display: flex;
+    border-radius: 5px;
+    flex-direction: row;
+    padding: 10px;
+    margin-top: 1rem;
+}
+
+#error-div
+{
+    background-color: rgb(255, 57, 57);
+}
+
+#correcto-div
+{
+    background-color: rgb(57, 255, 116);
+}
+
+#mensaje-div
+{
+    background-color: rgb(57, 192, 255);
+}
