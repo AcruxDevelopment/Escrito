@@ -73,19 +73,22 @@ body
 
 main
 {
-    display: flex;
+    display: grid; /* display flex y block no deja usar align-content adecuadamente */
     justify-content: center;
+    align-content: center;
+    height: 100%; /* me aseguro que ocupe ocupe el espacio vacio en body, asi luego puedo centrar el form */
 }
 
 form
 {
     display: flex;
-    width: 30rem;
+    max-width: 30rem;
     flex-direction: column;
     background-color: var(--form-bg);
     margin: 2rem;
     padding: 30px;
     border-radius: 10px;
+    height: fit-content; /* antes se alargaba junto a main, ya no */
 }
 
 form > h1
