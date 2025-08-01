@@ -11,6 +11,8 @@ const domCorrectoText = document.getElementById("correcto-text");
 const domMensajeDiv = document.getElementById("mensaje-div");
 const domMensajeText = document.getElementById("mensaje-text");
 
+const nombreRegexExcluir = RegExp("[^A-Za-z]");
+
 function esconderMensajes()
 {
     domErrorDiv.style.display = 'none';
@@ -45,7 +47,13 @@ domCalcular.addEventListener("click", (e) => {
     if(nombre.length < 2 || nombre.length > 20)
     {
         mostrarError("Ingrese nombre entre 2 y 20 caracteres.");
-        return;
+        return; 
+    }
+
+    if(nombreRegexExcluir.test(nombre))
+    {
+        mostrarError("El nombre solo debe contener letras");
+        return; 
     }
 
     if(cantidad == NaN || cantidad <= 0)
